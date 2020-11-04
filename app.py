@@ -1,22 +1,22 @@
 from time import sleep
 from pynput.keyboard import Key, Controller
+
 keyboard = Controller()
 
-startCounter = 9886
-endCounter = 10017
+start_counter = 9886 #set your start counter
+end_counter = 10017 #set your end counter
 
-breakCounter = startCounter + 100
+break_counter = start_counter + 100
+counter = start_counter
 
-counter = startCounter
+sleep(3) # so you can select your were you wanne tipe
 
-sleep(3)
-
-while endCounter >= counter:
+while end_counter >= counter:
     keyboard.type(f'{counter}')
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
-    if counter == breakCounter:
-        breakCounter += 100
+    if counter == break_counter:
+        break_counter += 100
         sleep(5)
     sleep(1)
     counter += 1
